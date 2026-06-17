@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /tmp/shots)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1440,2400 --screenshot=/tmp/shots/desktop.png http://localhost:3000)",
+      "Read(//tmp/**)",
+      "Bash(npm run *)"
+    ]
+  }
+}
