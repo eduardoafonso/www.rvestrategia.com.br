@@ -150,17 +150,12 @@ export default function AnalysisToolCTA() {
             </div>
 
             <div className="flex flex-col gap-1">
-              <div className="flex items-baseline justify-between">
-                <label
-                  htmlFor="phone"
-                  className="text-sm font-medium text-rv-light"
-                >
-                  Telefone
-                </label>
-                <span className="text-xs text-rv-light/50">
-                  para receber sua análise mais rápido
-                </span>
-              </div>
+              <label
+                htmlFor="phone"
+                className="text-sm font-medium text-rv-light"
+              >
+                Telefone
+              </label>
               <input
                 id="phone"
                 name="phone"

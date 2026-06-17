@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiMail } from 'react-icons/fi'
-import { SiInstagram, SiTiktok, SiWhatsapp, SiYoutube } from 'react-icons/si'
+import { SiInstagram, SiTiktok, SiYoutube } from 'react-icons/si'
 import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants'
 import NewsletterForm from './NewsletterForm'
 
@@ -10,7 +10,6 @@ const FOOTER_SOCIAL_LINKS = [
   { href: SOCIAL_LINKS.tiktok, label: 'TikTok', Icon: SiTiktok },
   { href: SOCIAL_LINKS.youtube, label: 'YouTube', Icon: SiYoutube },
   { href: '#newsletter', label: 'Newsletter', Icon: FiMail },
-  { href: SOCIAL_LINKS.whatsapp, label: 'WhatsApp', Icon: SiWhatsapp },
 ]
 
 export default function Footer() {
