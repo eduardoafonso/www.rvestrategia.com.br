@@ -63,6 +63,3 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-p {
-  color: var(--rv-body);
-}
