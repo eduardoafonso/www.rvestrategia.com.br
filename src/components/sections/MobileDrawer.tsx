@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { NAV_LINKS } from '@/lib/constants'
 
 type MobileDrawerProps = {
@@ -32,7 +33,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             type="button"
             onClick={onClose}
             aria-label="Fechar menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-rv-lilac/40 text-rv-light"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-rv-lilac/40 text-rv-light"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,14 +50,18 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
         <nav className="flex flex-col gap-6">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              onClick={onClose}
+              href={`/${link.href}`}
+              onClick={() => {
+                onClose()
+                if (link.href === '#home')
+                  window.dispatchEvent(new CustomEvent('hero-bob'))
+              }}
               className="font-heading text-lg text-rv-light transition hover:text-rv-pink"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

@@ -9,8 +9,12 @@
   --rv-card: #5c3d6e;
   --rv-salmon: #c4846a;
   --rv-pink: #e8b4a0;
+  --rv-cta: #cc5230;
+  --rv-cta-hover: #db6240;
   --rv-lilac: #b8a0c8;
   --rv-light: #f2f0f5;
+  --rv-blush: #fce4ec;
+  --rv-body: #3d2b4e;
 }
 
 @theme inline {
@@ -22,10 +26,31 @@
   --color-rv-card: var(--rv-card);
   --color-rv-salmon: var(--rv-salmon);
   --color-rv-pink: var(--rv-pink);
+  --color-rv-cta: var(--rv-cta);
+  --color-rv-cta-hover: var(--rv-cta-hover);
   --color-rv-lilac: var(--rv-lilac);
   --color-rv-light: var(--rv-light);
+  --color-rv-blush: var(--rv-blush);
+  --color-rv-body: var(--rv-body);
   --font-sans: var(--font-manrope);
   --font-heading: var(--font-fraunces);
+}
+
+@keyframes bob-vertical {
+  0%   { transform: translateY(0); }
+  15%  { transform: translateY(-12px); }
+  30%  { transform: translateY(0); }
+  45%  { transform: translateY(-7px); }
+  60%  { transform: translateY(0); }
+  75%  { transform: translateY(-3px); }
+  90%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-bob {
+    animation: bob-vertical 0.9s ease-in-out;
+  }
 }
 
 html {
@@ -34,6 +59,10 @@ html {
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--rv-body);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+p {
+  color: var(--rv-body);
 }

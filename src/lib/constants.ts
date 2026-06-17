@@ -6,18 +6,17 @@ export const SOCIAL_LINKS = {
   tiktok: 'https://tiktok.com/@rvestrategia',
   // TODO: confirmar a URL real do canal do YouTube
   youtube: 'https://youtube.com/@rvestrategia',
-  // TODO: trocar pelo número real de WhatsApp (formato 55DDDNUMERO)
-  whatsapp: 'https://wa.me/5500000000000',
+  whatsapp: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5500000000000'}`,
 }
 
 // TODO: criar a página /politica-de-privacidade
 export const PRIVACY_POLICY_PATH = '/politica-de-privacidade'
 
 export const NAV_LINKS = [
-  { href: '#hero', label: 'Home' },
+  { href: '#home', label: 'Home' },
   { href: '#sobre', label: 'Sobre' },
-  { href: '#servicos', label: 'Serviços' },
   { href: '#diagnostico', label: 'Diagnóstico Gratuito' },
+  { href: '#servicos', label: 'Serviços' },
   { href: '#contato', label: 'Contato' },
 ]
 
@@ -45,15 +44,15 @@ export const SERVICES: Service[] = [
     title: 'Consultoria & Diagnóstico',
     price: 'R$ 197',
     description:
-      'Uma análise profunda para identificar o que está impedindo seu ' +
-      'perfil de crescer, gerar autoridade e atrair clientes.',
+      'Você sai da sessão sabendo exatamente o que está travando sua ' +
+      'presença digital — e com um plano claro de onde e como mudar.',
     features: [
-      'Análise estratégica do perfil',
-      'Posicionamento e percepção de valor',
-      'Bio e comunicação',
-      'Ideias de conteúdo alinhadas ao objetivo',
-      'Oportunidades de crescimento e vendas',
-      'Plano de ação personalizado',
+      'Clareza sobre o que está impedindo seu crescimento',
+      'Como você é percebido hoje e como mudar isso',
+      'Bio e perfil que comunicam valor imediatamente',
+      'Ideias de conteúdo que atraem, não apenas informam',
+      'Oportunidades reais de crescimento e vendas identificadas',
+      'Plano de ação com prioridades definidas',
     ],
     duration: '60 a 90 minutos',
   },
@@ -62,16 +61,16 @@ export const SERVICES: Service[] = [
     title: 'Mentoria Estratégica 30 dias',
     price: 'R$ 297',
     description:
-      'Acompanhamento estratégico para profissionais que desejam crescer ' +
-      'com direcionamento, consistência e posicionamento premium.',
+      '30 dias para construir um posicionamento que atrai as pessoas certas ' +
+      '— com acompanhamento direto para garantir que a estratégia sai do papel.',
     features: [
-      'Tudo da consultoria',
-      'Suporte estratégico pelo WhatsApp',
-      'Revisão de conteúdo e posicionamento',
-      'Direcionamento de autoridade',
-      'Ajustes de comunicação',
-      'Estratégias práticas de crescimento',
-      'Acompanhamento da execução',
+      'Inclui tudo da Consultoria & Diagnóstico',
+      'Suporte direto no WhatsApp para dúvidas e ajustes',
+      'Conteúdo revisado antes de publicar',
+      'Direcionamento para construir autoridade semana a semana',
+      'Comunicação ajustada conforme os resultados aparecem',
+      'Estratégias que você executa com clareza e confiança',
+      'Acompanhamento para garantir que a estratégia sai do papel',
     ],
     highlight: true,
   },
@@ -80,8 +79,8 @@ export const SERVICES: Service[] = [
     title: 'Método RV da Competência à Autoridade',
     price: 'R$ 398',
     description:
-      'Aprenda a transformar sua experiência profissional em autoridade, ' +
-      'confiança e clientes — sem viver produzindo conteúdos.',
+      'O método completo para transformar sua experiência em autoridade ' +
+      'reconhecida — sem depender de volume de conteúdo ou tendências passageiras.',
     features: [],
   },
   {
@@ -89,15 +88,15 @@ export const SERVICES: Service[] = [
     title: 'Estratégia + Tráfego',
     price: 'Campanha personalizada',
     description:
-      'Planejamento estratégico e gestão de tráfego pago direcionados ' +
-      'conforme o perfil, momento e objetivo do cliente.',
+      'Para quem quer acelerar resultados com tráfego pago — campanha ' +
+      'criada do zero para o seu perfil, objetivo e momento.',
     features: [
-      'Análise do momento atual do perfil',
-      'Definição do objetivo da campanha',
-      'Estrutura estratégica da comunicação',
-      'Direcionamento de público',
-      'Planejamento da campanha com foco em resultado',
-      'Monitoramento e otimização contínua',
+      'Diagnóstico do momento atual e do potencial de crescimento',
+      'Objetivo de campanha definido com precisão',
+      'Comunicação estruturada para converter, não apenas aparecer',
+      'Público certo definido para não desperdiçar verba',
+      'Campanha construída para gerar retorno real',
+      'Monitoramento e otimização contínua dos resultados',
     ],
   },
 ]

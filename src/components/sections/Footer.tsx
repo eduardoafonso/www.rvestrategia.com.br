@@ -1,4 +1,5 @@
-import Logo from '@/components/Logo'
+import Image from 'next/image'
+import Link from 'next/link'
 import { FiMail } from 'react-icons/fi'
 import { SiInstagram, SiTiktok, SiWhatsapp, SiYoutube } from 'react-icons/si'
 import { NAV_LINKS, SOCIAL_LINKS } from '@/lib/constants'
@@ -18,10 +19,18 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_auto_1.2fr]">
         <div>
           <div className="flex items-center gap-2">
-            <Logo size={32} />
+            <Image
+              src="/logo-footer.png"
+              alt="RV Estratégia"
+              width={32}
+              height={32}
+              className="shrink-0"
+            />
             <span className="font-heading text-sm tracking-wide text-rv-light">
               RITA VANIN
             </span>
+            <span className="text-rv-lilac/60">|</span>
+            <span className="text-sm text-rv-light/70">Estrategista Digital</span>
           </div>
 
           <div className="mt-6 flex gap-3">
@@ -42,13 +51,13 @@ export default function Footer() {
 
         <nav className="flex flex-col gap-3">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              href={`/${link.href}`}
               className="text-sm text-rv-light/80 transition hover:text-rv-pink"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -62,10 +71,18 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="mx-auto mt-12 max-w-6xl text-xs text-rv-light/40">
-        © {new Date().getFullYear()} RV Estratégia. Todos os direitos
-        reservados.
-      </p>
+      <div className="mx-auto mt-12 flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1">
+        <p className="text-xs text-rv-light/40">
+          © {new Date().getFullYear()} RV Estratégia. Todos os direitos
+          reservados.
+
+          <Link
+            href="/politica-de-privacidade"
+            className="text-xs text-rv-light/40 transition hover:text-rv-pink"
+          > Política de Privacidade
+          </Link>
+        </p>
+      </div>
     </footer>
   )
 }

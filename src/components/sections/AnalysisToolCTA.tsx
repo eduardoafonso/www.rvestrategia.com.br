@@ -13,6 +13,15 @@ export default function AnalysisToolCTA() {
   const [status, setStatus] = useState<Status>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [result, setResult] = useState<LeadResult | null>(null)
+  const [phone, setPhone] = useState('')
+
+  function maskPhone(value: string) {
+    const d = value.replace(/\D/g, '').slice(0, 11)
+    if (d.length <= 2) return `(${d}`
+    if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`
+    if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -23,6 +32,7 @@ export default function AnalysisToolCTA() {
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
+      social: form.get('social'),
       phone: form.get('phone'),
     }
 
@@ -51,16 +61,16 @@ export default function AnalysisToolCTA() {
   return (
     <section
       id="diagnostico"
-      className="scroll-mt-16 bg-rv-light px-4 py-20 sm:px-6 sm:py-28"
+      className="scroll-mt-16 bg-rv-card px-4 py-8 sm:px-6 sm:py-12"
     >
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="font-heading text-3xl font-semibold text-rv-bg sm:text-4xl">
-          Quais as competências e estratégias podemos estruturar no seu
-          negócio?
+        <h2 className="font-heading text-3xl font-semibold text-rv-light sm:text-4xl">
+          Descubra o que está impedindo você de atrair clientes no digital
         </h2>
-        <p className="mt-4 text-rv-bg/70">
-          Receba gratuitamente uma análise inicial do seu perfil e descubra
-          os primeiros passos para transformar experiência em autoridade.
+        <p className="mt-4 text-rv-light/75">
+          Preencha abaixo e receba gratuitamente uma análise inicial do seu
+          perfil, descubra o que está faltando, o que pode mudar e por onde
+          começar para transformar experiência em autoridade.
         </p>
       </div>
 
@@ -124,17 +134,39 @@ export default function AnalysisToolCTA() {
 
             <div className="flex flex-col gap-1">
               <label
-                htmlFor="phone"
+                htmlFor="social"
                 className="text-sm font-medium text-rv-light"
               >
-                WhatsApp
+                Rede Social
               </label>
+              <input
+                id="social"
+                name="social"
+                type="text"
+                required
+                className="rounded-lg border border-rv-lilac/30 bg-rv-bg-alt px-4 py-2 text-rv-light placeholder:text-rv-light/40 focus:border-rv-salmon focus:outline-none"
+                placeholder="Link do perfil"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="flex items-baseline justify-between">
+                <label
+                  htmlFor="phone"
+                  className="text-sm font-medium text-rv-light"
+                >
+                  Telefone
+                </label>
+                <span className="text-xs text-rv-light/50">
+                  opcional — para receber sua análise mais rápido
+                </span>
+              </div>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
-                required
-                pattern="[0-9()+\-\s]{8,}"
+                value={phone}
+                onChange={(e) => setPhone(maskPhone(e.target.value))}
                 className="rounded-lg border border-rv-lilac/30 bg-rv-bg-alt px-4 py-2 text-rv-light placeholder:text-rv-light/40 focus:border-rv-salmon focus:outline-none"
                 placeholder="(00) 00000-0000"
               />
@@ -147,7 +179,7 @@ export default function AnalysisToolCTA() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="mt-2 rounded-full bg-rv-salmon px-6 py-3 font-heading text-sm font-semibold text-rv-bg transition hover:scale-[1.02] hover:bg-rv-pink hover:shadow-lg disabled:opacity-60 disabled:hover:scale-100"
+              className="mt-2 rounded-full bg-rv-cta px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-rv-cta-hover hover:shadow-lg disabled:opacity-60 disabled:hover:scale-100"
             >
               {status === 'loading'
                 ? 'Analisando...'

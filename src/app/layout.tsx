@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Fraunces, Manrope } from 'next/font/google'
+import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/sections/Header'
 import Footer from '@/components/sections/Footer'
-import StickyMobileCta from '@/components/sections/StickyMobileCta'
 import WhatsAppFloatingButton from '@/components/sections/WhatsAppFloatingButton'
+import CookieBannerWrapper from '@/components/CookieBannerWrapper'
 import { SITE_URL } from '@/lib/constants'
 
-const fraunces = Fraunces({
+const fraunces = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-fraunces',
 })
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-manrope',
 })
@@ -52,6 +52,7 @@ export const metadata: Metadata = {
   },
   description: 'Transformo sua experiência profissional em autoridade e clientes. Posicionamento, branding e mentoria para profissionais do digital.',
   keywords: ['posicionamento digital', 'estrategista digital', 'mentoria instagram', 'branding pessoal', 'Rita Vanin'],
+  icons: { icon: '/favicon.png', shortcut: '/favicon.png' },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
@@ -71,9 +72,9 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${fraunces.variable} ${manrope.variable}`}
+      className={`${fraunces.variable} ${inter.variable}`}
     >
-      <body className="flex min-h-screen flex-col bg-rv-bg pb-20 sm:pb-0">
+      <body className="flex min-h-screen flex-col bg-rv-bg">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -87,8 +88,8 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <StickyMobileCta />
         <WhatsAppFloatingButton />
+        <CookieBannerWrapper />
       </body>
     </html>
   )

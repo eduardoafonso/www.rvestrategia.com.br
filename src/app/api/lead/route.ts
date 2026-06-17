@@ -12,11 +12,12 @@ export async function POST(request: Request) {
 
   const name = typeof body?.name === 'string' ? body.name.trim() : ''
   const email = typeof body?.email === 'string' ? body.email.trim() : ''
+  const social = typeof body?.social === 'string' ? body.social.trim() : ''
   const phone = typeof body?.phone === 'string' ? body.phone.trim() : ''
 
-  if (!name || !email || !phone) {
+  if (!name || !email || !social) {
     return NextResponse.json(
-      { message: 'Preencha nome, email e WhatsApp.' },
+      { message: 'Preencha nome, email e rede social.' },
       { status: 400 },
     )
   }
@@ -33,7 +34,7 @@ export async function POST(request: Request) {
 
   // TODO: persistir o lead (CRM/Sheets/DB) e disparar o fluxo de email
   // com a oferta da versão paga da ferramenta de análise.
-  console.log('Novo lead validado:', { name, email, phone })
+  console.log('Novo lead validado:', { name, email, social, phone })
 
   return NextResponse.json({
     result: {

@@ -10,24 +10,37 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rv-lilac/20 bg-rv-bg/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-rv-lilac/30 bg-rv-blush sm:backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="#hero" className="flex items-center gap-2">
+        <Link
+          href="/#home"
+          className="flex items-center gap-2"
+          onClick={() => window.dispatchEvent(new CustomEvent('hero-bob'))}
+        >
           <Logo size={36} />
-          <span className="font-heading text-sm tracking-wide text-rv-light sm:text-base">
+          <span className="font-heading text-sm tracking-wide text-rv-bg sm:text-base">
             RITA VANIN
+          </span>
+          <span className="text-rv-lilac">|</span>
+          <span className="text-sm text-rv-body/80">
+            Estrategista Digital
           </span>
         </Link>
 
         <nav className="hidden items-center gap-6 sm:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              className="text-sm text-rv-light/90 transition hover:text-rv-pink"
+              href={`/${link.href}`}
+              onClick={
+                link.href === '#home'
+                  ? () => window.dispatchEvent(new CustomEvent('hero-bob'))
+                  : undefined
+              }
+              className="text-sm text-rv-body/80 transition hover:text-rv-salmon"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -36,7 +49,7 @@ export default function Header() {
           onClick={() => setIsOpen(true)}
           aria-label="Abrir menu"
           aria-expanded={isOpen}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-rv-lilac/40 text-rv-light sm:hidden"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-rv-lilac/50 text-rv-bg sm:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

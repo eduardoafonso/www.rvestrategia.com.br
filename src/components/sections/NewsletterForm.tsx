@@ -60,7 +60,7 @@ export default function NewsletterForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="rounded-full bg-rv-light px-6 py-3 text-sm font-semibold text-rv-bg transition hover:scale-[1.02] hover:bg-rv-pink disabled:opacity-60"
+          className="rounded-full bg-rv-cta px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-rv-cta-hover disabled:opacity-60"
         >
           {status === 'loading' ? 'Enviando...' : 'Inscrever'}
         </button>

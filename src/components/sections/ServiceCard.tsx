@@ -3,10 +3,10 @@ import type { Service } from '@/lib/constants'
 export default function ServiceCard({ service }: { service: Service }) {
   return (
     <article
-      className={`flex h-full flex-col gap-4 rounded-2xl border p-6 transition hover:-translate-y-1 hover:shadow-xl ${
+      className={`flex h-full flex-col gap-4 rounded-2xl border p-6 transition hover:-translate-y-1 hover:shadow-xl bg-rv-card ${
         service.highlight
-          ? 'border-rv-salmon bg-rv-card'
-          : 'border-rv-lilac/30 bg-rv-card/70'
+          ? 'border-rv-salmon'
+          : 'border-rv-lilac/30'
       }`}
     >
       <h3 className="font-heading text-xl font-semibold text-rv-light">
@@ -37,7 +37,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         </span>
         <a
           href="#contato"
-          className="rounded-full bg-rv-salmon px-4 py-2 text-sm font-semibold text-rv-bg transition hover:scale-[1.05] hover:bg-rv-pink"
+          className="rounded-full bg-rv-cta px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.05] hover:bg-rv-cta-hover"
         >
           Quero esse
         </a>

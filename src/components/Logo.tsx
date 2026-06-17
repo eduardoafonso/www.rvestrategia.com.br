@@ -8,7 +8,7 @@ type LogoProps = {
 export default function Logo({ size = 44, className }: LogoProps) {
   return (
     <Image
-      src="/logo.svg"
+      src="/logo.png"
       alt="RV Estratégia — logo de Rita Vanin"
       width={size}
       height={size}

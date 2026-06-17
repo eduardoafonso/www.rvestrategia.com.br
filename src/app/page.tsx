@@ -7,6 +7,8 @@ import PhilosophyQuote from '@/components/sections/PhilosophyQuote'
 import SocialProofSection from '@/components/sections/SocialProofSection'
 import AnalysisToolCTA from '@/components/sections/AnalysisToolCTA'
 import ServicesSection from '@/components/sections/ServicesSection'
+import MarketingPhilosophySection from '@/components/sections/MarketingPhilosophySection'
+import HowItWorksSection from '@/components/sections/HowItWorksSection'
 import FinalCTA from '@/components/sections/FinalCTA'
 
 export const metadata: Metadata = {
@@ -31,7 +33,13 @@ export default function Home() {
         <PhilosophyQuote />
       </Reveal>
       <Reveal>
+        <MarketingPhilosophySection />
+      </Reveal>
+      <Reveal>
         <SocialProofSection />
+      </Reveal>
+      <Reveal>
+        <HowItWorksSection />
       </Reveal>
       <Reveal>
         <AnalysisToolCTA />
