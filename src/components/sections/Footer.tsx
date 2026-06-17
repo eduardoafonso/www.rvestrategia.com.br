@@ -9,7 +9,7 @@ const FOOTER_SOCIAL_LINKS = [
   { href: SOCIAL_LINKS.instagram, label: 'Instagram', Icon: SiInstagram },
   { href: SOCIAL_LINKS.tiktok, label: 'TikTok', Icon: SiTiktok },
   { href: SOCIAL_LINKS.youtube, label: 'YouTube', Icon: SiYoutube },
-  { href: '#newsletter', label: 'Newsletter', Icon: FiMail },
+  { href: SOCIAL_LINKS.substack, label: 'Newsletter', Icon: FiMail },
 ]
 
 export default function Footer() {

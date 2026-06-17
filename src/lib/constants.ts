@@ -2,10 +2,9 @@ export const SITE_URL = 'https://rvestrategia.com.br'
 
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/rvestrategia',
-  // TODO: confirmar o @ real do TikTok da Rita
   tiktok: 'https://tiktok.com/@rvestrategia',
-  // TODO: confirmar a URL real do canal do YouTube
   youtube: 'https://youtube.com/@rvestrategia',
+  substack: 'https://rvestrategia.substack.com',
   whatsapp: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5500000000000'}`,
 }
 
