@@ -158,7 +158,7 @@ export default function AnalysisToolCTA() {
                   Telefone
                 </label>
                 <span className="text-xs text-rv-light/50">
-                  opcional — para receber sua análise mais rápido
+                  para receber sua análise mais rápido
                 </span>
               </div>
               <input
