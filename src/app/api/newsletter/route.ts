@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
 import { validateEmail } from '@/lib/validateEmail'
 
-const SUBSTACK_URL = 'https://rvestrategia.substack.com/api/v1/free'
-
 export async function POST(request: Request) {
+  const substackUrl = process.env.SUBSTACK_URL ?? ''
   const body = await request.json().catch(() => null)
   const email = typeof body?.email === 'string' ? body.email.trim() : ''
 
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
   }
 
   const params = new URLSearchParams({ email })
-  const res = await fetch(SUBSTACK_URL, {
+  const res = await fetch(substackUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: params.toString(),
