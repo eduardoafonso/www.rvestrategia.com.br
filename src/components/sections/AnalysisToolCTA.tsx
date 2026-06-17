@@ -68,7 +68,7 @@ export default function AnalysisToolCTA() {
           Descubra o que está impedindo você de atrair clientes no digital
         </h2>
         <p className="mt-4 text-rv-light/75">
-          Preencha abaixo e receba gratuitamente uma análise inicial do seu
+          Preencha e receba gratuitamente uma análise inicial do seu
           perfil, descubra o que está faltando, o que pode mudar e por onde
           começar para transformar experiência em autoridade.
         </p>
