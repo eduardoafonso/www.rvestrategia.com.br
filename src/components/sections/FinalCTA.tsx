@@ -72,7 +72,9 @@ export default function FinalCTA() {
       <div className="mx-auto mt-10 max-w-md rounded-2xl bg-rv-card p-6 text-left shadow-xl sm:p-8">
         {status === 'success' ? (
           <div className="py-6 text-center">
-            <FiCheckCircle className="mx-auto h-14 w-14 text-rv-salmon" />
+            <div className="flex justify-center">
+              <FiCheckCircle className="h-14 w-14 text-rv-salmon" />
+            </div>
             <p className="mt-4 font-heading text-lg font-semibold text-rv-light">
               Mensagem recebida!
             </p>
