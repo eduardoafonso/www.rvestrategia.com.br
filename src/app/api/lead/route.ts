@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { validateEmail } from '@/lib/validateEmail'
+import { supabase } from '@/lib/supabase'
 
 const MOCK_INSIGHTS = [
   'Sua bio não comunica com clareza o problema que você resolve.',
@@ -32,9 +33,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ message }, { status: 400 })
   }
 
-  // TODO: persistir o lead (CRM/Sheets/DB) e disparar o fluxo de email
-  // com a oferta da versão paga da ferramenta de análise.
-  console.log('Novo lead validado:', { name, email, social, phone })
+  const { error } = await supabase
+    .from('leads')
+    .insert({ name, email, social, phone })
+
+  if (error) {
+    console.error('[lead] Supabase error', error)
+  }
 
   return NextResponse.json({
     result: {
