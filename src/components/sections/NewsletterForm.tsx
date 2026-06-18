@@ -85,6 +85,8 @@ export default function NewsletterForm() {
         pessoais de acordo com a LGPD e com a nossa{' '}
         <a
           href={PRIVACY_POLICY_PATH}
+          target="_blank"
+          rel="noopener noreferrer"
           className="underline transition hover:text-rv-pink"
         >
           Política de Privacidade
