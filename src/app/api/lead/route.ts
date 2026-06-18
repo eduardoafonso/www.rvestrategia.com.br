@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { validateEmail } from '@/lib/validateEmail'
+import { validatePhone } from '@/lib/validatePhone'
 import { supabase } from '@/lib/supabase'
 
 const MOCK_INSIGHTS = [
@@ -19,6 +20,13 @@ export async function POST(request: Request) {
   if (!name || !email || !social) {
     return NextResponse.json(
       { message: 'Preencha nome, email e rede social.' },
+      { status: 400 },
+    )
+  }
+
+  if (phone && !validatePhone(phone)) {
+    return NextResponse.json(
+      { message: 'Telefone inválido. Informe DDD + número (10 ou 11 dígitos).' },
       { status: 400 },
     )
   }

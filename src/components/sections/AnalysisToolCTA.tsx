@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { validatePhone } from '@/lib/validatePhone'
 
 type LeadResult = {
   score: number
@@ -29,11 +30,18 @@ export default function AnalysisToolCTA() {
     setErrorMessage('')
 
     const form = new FormData(event.currentTarget)
+    const phoneValue = form.get('phone') as string
+    if (phoneValue && !validatePhone(phoneValue)) {
+      setStatus('error')
+      setErrorMessage('Telefone inválido. Informe DDD + número (10 ou 11 dígitos).')
+      return
+    }
+
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
       social: form.get('social'),
-      phone: form.get('phone'),
+      phone: phoneValue,
     }
 
     try {

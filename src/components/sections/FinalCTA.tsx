@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import { FiCheckCircle } from 'react-icons/fi'
+import { validatePhone } from '@/lib/validatePhone'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -24,10 +25,17 @@ export default function FinalCTA() {
     setErrorMessage('')
 
     const form = new FormData(event.currentTarget)
+    const phoneValue = form.get('phone') as string
+    if (!validatePhone(phoneValue)) {
+      setStatus('error')
+      setErrorMessage('Telefone inválido. Informe DDD + número (10 ou 11 dígitos).')
+      return
+    }
+
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
-      phone: form.get('phone'),
+      phone: phoneValue,
       subject: form.get('subject'),
     }
 

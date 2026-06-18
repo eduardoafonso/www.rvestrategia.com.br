@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { validateEmail } from '@/lib/validateEmail'
+import { validatePhone } from '@/lib/validatePhone'
 import { supabase } from '@/lib/supabase'
 
 export async function POST(request: Request) {
@@ -13,6 +14,13 @@ export async function POST(request: Request) {
   if (!name || !email || !phone || !subject) {
     return NextResponse.json(
       { message: 'Preencha todos os campos obrigatórios.' },
+      { status: 400 },
+    )
+  }
+
+  if (!validatePhone(phone)) {
+    return NextResponse.json(
+      { message: 'Telefone inválido. Informe DDD + número (10 ou 11 dígitos).' },
       { status: 400 },
     )
   }
