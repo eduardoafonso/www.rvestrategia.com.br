@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="grid lg:grid-cols-[1fr_45%]">
         {/* Coluna texto */}
         <div className="flex min-h-[calc(100svh-4rem)] flex-col justify-center px-4 py-10 sm:px-8 lg:pr-16 lg:pl-[max(2rem,calc((100vw_-_72rem)_/_2_+_1.5rem))]">
-          <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-rv-bg sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl font-semibold leading-[1.1] text-rv-bg sm:text-5xl">
             Transformo sua experiência profissional em{' '}
             <span className="text-rv-salmon">autoridade</span> e{' '}
             <span className="text-rv-salmon">novos clientes</span>
