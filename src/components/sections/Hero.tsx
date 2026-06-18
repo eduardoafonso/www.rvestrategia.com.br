@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
 
         {/* Coluna foto */}
-        <div className="relative h-64 bg-rv-lilac/20 sm:h-80 lg:h-auto">
+        <div className="relative hidden bg-rv-lilac/20 lg:block lg:h-auto">
           <div className="absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-rv-light to-transparent" />
           {/* foto-hero.jpg — enviar e salvar em /public/foto-hero.jpg */}
         </div>
