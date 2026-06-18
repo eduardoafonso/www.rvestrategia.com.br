@@ -61,7 +61,7 @@ export default function Footer() {
 
         <div id="newsletter" className="scroll-mt-16">
           <h2 className="font-heading text-lg font-semibold text-rv-light">
-            Fique por dentro! Receba novidades e ofertas.
+            Receba novidades e ofertas.
           </h2>
           <div className="mt-4">
             <NewsletterForm />
