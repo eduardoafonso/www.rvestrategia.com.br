@@ -69,7 +69,7 @@ export default function FinalCTA() {
       id="contato"
       className="scroll-mt-16 bg-rv-bg-alt px-4 py-8 text-center sm:px-6 sm:py-12"
     >
-      <h2 className="font-heading text-3xl font-semibold text-rv-light sm:text-5xl">
+      <h2 className="font-heading text-3xl font-semibold text-rv-light sm:text-4xl">
         Vamos transformar a sua{' '}
         <span className="text-rv-salmon">marca</span>?
       </h2>
