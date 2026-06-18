@@ -10,9 +10,9 @@ export async function POST(request: Request) {
   const phone = typeof body?.phone === 'string' ? body.phone.trim() : ''
   const subject = typeof body?.subject === 'string' ? body.subject.trim() : ''
 
-  if (!name || !email || !subject) {
+  if (!name || !email || !phone || !subject) {
     return NextResponse.json(
-      { message: 'Preencha nome, email e assunto.' },
+      { message: 'Preencha todos os campos obrigatórios.' },
       { status: 400 },
     )
   }

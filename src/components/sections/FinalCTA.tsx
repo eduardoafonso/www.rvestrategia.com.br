@@ -120,6 +120,7 @@ export default function FinalCTA() {
                 id="contact-phone"
                 name="phone"
                 type="tel"
+                required
                 value={phone}
                 onChange={(e) => setPhone(maskPhone(e.target.value))}
                 className={inputClass}
