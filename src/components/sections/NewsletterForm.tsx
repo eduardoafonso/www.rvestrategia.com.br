@@ -1,9 +1,10 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { FiCheckCircle, FiAlertCircle } from 'react-icons/fi'
 import { PRIVACY_POLICY_PATH } from '@/lib/constants'
 
-type Status = 'idle' | 'loading' | 'error' | 'success'
+type Status = 'idle' | 'loading' | 'error' | 'success' | 'duplicate'
 
 export default function NewsletterForm() {
   const [status, setStatus] = useState<Status>('idle')
@@ -31,7 +32,7 @@ export default function NewsletterForm() {
         return
       }
 
-      setStatus('success')
+      setStatus(data.duplicate ? 'duplicate' : 'success')
       form.reset()
       setTimeout(() => setStatus('idle'), 5000)
     } catch {
@@ -42,9 +43,19 @@ export default function NewsletterForm() {
 
   if (status === 'success') {
     return (
-      <p className="rounded-full border border-rv-lilac/30 px-5 py-3 text-sm text-rv-pink">
-        Inscrição confirmada! Você vai receber novidades em breve.
-      </p>
+      <div className="flex items-center gap-2 rounded-full border border-rv-lilac/30 px-5 py-3 text-sm text-rv-pink">
+        <FiCheckCircle className="h-4 w-4 shrink-0" />
+        <span>Inscrição confirmada! Você vai receber novidades em breve.</span>
+      </div>
+    )
+  }
+
+  if (status === 'duplicate') {
+    return (
+      <div className="flex items-center gap-2 rounded-full border border-rv-lilac/30 px-5 py-3 text-sm text-rv-light/70">
+        <FiAlertCircle className="h-4 w-4 shrink-0 text-rv-salmon" />
+        <span>Este email já está cadastrado na nossa lista.</span>
+      </div>
     )
   }
 

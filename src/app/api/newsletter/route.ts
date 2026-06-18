@@ -4,7 +4,8 @@ import { supabase } from '@/lib/supabase'
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null)
-  const email = typeof body?.email === 'string' ? body.email.trim() : ''
+  const email =
+    typeof body?.email === 'string' ? body.email.trim().toLowerCase() : ''
 
   if (!email) {
     return NextResponse.json({ message: 'Informe um email.' }, { status: 400 })
@@ -20,11 +21,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ message }, { status: 400 })
   }
 
-  const { error } = await supabase
-    .from('subscribers')
-    .insert({ email })
+  const { error } = await supabase.from('subscribers').insert({ email })
 
-  if (error && error.code !== '23505') {
+  if (error) {
+    if (error.code === '23505') {
+      return NextResponse.json({ ok: true, duplicate: true })
+    }
     console.error('[newsletter] Supabase error', error)
     return NextResponse.json(
       { message: 'Não foi possível completar a inscrição. Tente novamente.' },
@@ -32,5 +34,5 @@ export async function POST(request: Request) {
     )
   }
 
-  return NextResponse.json({ ok: true })
+  return NextResponse.json({ ok: true, duplicate: false })
 }
