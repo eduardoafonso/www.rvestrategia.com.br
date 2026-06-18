@@ -1,23 +1,48 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
-import { PRIVACY_POLICY_PATH, SOCIAL_LINKS } from '@/lib/constants'
+import { PRIVACY_POLICY_PATH } from '@/lib/constants'
+
+type Status = 'idle' | 'loading' | 'error' | 'success'
 
 export default function NewsletterForm() {
-  const [done, setDone] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [message, setMessage] = useState('')
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const email = new FormData(event.currentTarget).get('email') as string
-    const url = `${SOCIAL_LINKS.substack}?email=${encodeURIComponent(email)}`
-    window.open(url, '_blank', 'noopener,noreferrer')
-    setDone(true)
+    setStatus('loading')
+    setMessage('')
+
+    const form = event.currentTarget
+    const email = new FormData(form).get('email')
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await response.json()
+
+      if (!response.ok) {
+        setStatus('error')
+        setMessage(data.message ?? 'Não foi possível confirmar esse email.')
+        return
+      }
+
+      setStatus('success')
+      form.reset()
+    } catch {
+      setStatus('error')
+      setMessage('Algo deu errado. Tente novamente em instantes.')
+    }
   }
 
-  if (done) {
+  if (status === 'success') {
     return (
       <p className="rounded-full border border-rv-lilac/30 px-5 py-3 text-sm text-rv-pink">
-        Abrindo o Substack — confirme sua inscrição lá!
+        Inscrição confirmada! Você vai receber novidades em breve.
       </p>
     )
   }
@@ -34,11 +59,15 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          className="rounded-full bg-rv-cta px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-rv-cta-hover"
+          disabled={status === 'loading'}
+          className="rounded-full bg-rv-cta px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:bg-rv-cta-hover disabled:opacity-60"
         >
-          Inscrever
+          {status === 'loading' ? 'Enviando...' : 'Inscrever'}
         </button>
       </div>
+      {status === 'error' && (
+        <p className="text-xs text-rv-salmon">{message}</p>
+      )}
       <p className="text-xs text-rv-light/50">
         Ao se inscrever, você concorda com o tratamento dos seus dados
         pessoais de acordo com a LGPD e com a nossa{' '}

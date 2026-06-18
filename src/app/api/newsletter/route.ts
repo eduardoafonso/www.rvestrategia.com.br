@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 import { validateEmail } from '@/lib/validateEmail'
+import { supabase } from '@/lib/supabase'
 
 export async function POST(request: Request) {
-  const substackUrl = process.env.SUBSTACK_URL ?? ''
   const body = await request.json().catch(() => null)
   const email = typeof body?.email === 'string' ? body.email.trim() : ''
 
@@ -20,19 +20,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ message }, { status: 400 })
   }
 
-  const params = new URLSearchParams({ email })
-  const res = await fetch(substackUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString(),
-  })
+  const { error } = await supabase
+    .from('subscribers')
+    .insert({ email })
 
-  if (!res.ok) {
-    const text = await res.text().catch(() => '')
-    console.error('[newsletter] Substack error', res.status, text)
+  if (error && error.code !== '23505') {
+    console.error('[newsletter] Supabase error', error)
     return NextResponse.json(
       { message: 'Não foi possível completar a inscrição. Tente novamente.' },
-      { status: 502 },
+      { status: 500 },
     )
   }
 
