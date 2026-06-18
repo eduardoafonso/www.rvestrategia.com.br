@@ -1,4 +1,5 @@
 import type { Service } from '@/lib/constants'
+import { SOCIAL_LINKS } from '@/lib/constants'
 
 export default function ServiceCard({ service }: { service: Service }) {
   return (
@@ -37,7 +38,7 @@ export default function ServiceCard({ service }: { service: Service }) {
           {service.price}
         </span>
         <a
-          href={service.ctaHref ?? '#contato'}
+          href={service.ctaHref ?? SOCIAL_LINKS.whatsapp}
           className="rounded-full bg-rv-cta px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.05] hover:bg-rv-cta-hover"
         >
           Quero esse
