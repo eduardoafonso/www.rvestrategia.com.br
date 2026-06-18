@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
 import { SITE_URL } from '@/lib/constants'
+import ScrollRestoration from '@/components/ScrollRestoration'
 
 const fraunces = Poppins({
   subsets: ['latin'],
@@ -81,6 +82,7 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
+        <ScrollRestoration />
         {children}
       </body>
     </html>
