@@ -35,6 +35,7 @@ export type Service = {
   features: string[]
   duration?: string
   highlight?: boolean
+  ctaHref?: string
 }
 
 export const SERVICES: Service[] = [
@@ -81,6 +82,7 @@ export const SERVICES: Service[] = [
       'O método completo para transformar sua experiência em autoridade ' +
       'reconhecida — sem depender de volume de conteúdo ou tendências passageiras.',
     features: [],
+    ctaHref: '/metodo-rv',
   },
   {
     slug: 'estrategia-trafego',

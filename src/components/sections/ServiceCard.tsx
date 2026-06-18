@@ -36,7 +36,7 @@ export default function ServiceCard({ service }: { service: Service }) {
           {service.price}
         </span>
         <a
-          href="#contato"
+          href={service.ctaHref ?? '#contato'}
           className="rounded-full bg-rv-cta px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.05] hover:bg-rv-cta-hover"
         >
           Quero esse
