@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiUsers, FiMessageSquare, FiMail } from 'react-icons/fi'
+import { FiUser, FiUsers, FiMessageSquare, FiMail } from 'react-icons/fi'
 
 const NAV = [
+  { href: '/admin/usuarios', label: 'Usuários', icon: FiUser },
   { href: '/admin/leads', label: 'Leads', icon: FiUsers },
   { href: '/admin/mensagens', label: 'Mensagens', icon: FiMessageSquare },
   { href: '/admin/newsletter', label: 'Newsletter', icon: FiMail },

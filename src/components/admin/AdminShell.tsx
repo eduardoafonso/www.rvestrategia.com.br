@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { FiLogOut } from 'react-icons/fi'
 import AdminSidebar from './AdminSidebar'
 import AdminMobileDrawer from './AdminMobileDrawer'
+import { createSupabaseBrowser } from '@/lib/supabase-browser'
 
 function LogoutModal({
   onConfirm,
@@ -110,9 +111,11 @@ export default function AdminShell({
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [logoutConfirm, setLogoutConfirm] = useState(false)
 
-  function handleLogoutConfirm() {
+  async function handleLogoutConfirm() {
+    const supabase = createSupabaseBrowser()
+    await supabase.auth.signOut()
     setLogoutConfirm(false)
-    router.push('/')
+    router.push('/admin/login')
   }
 
   return (
