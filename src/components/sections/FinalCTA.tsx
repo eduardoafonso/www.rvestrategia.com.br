@@ -46,7 +46,7 @@ export default function FinalCTA() {
       }
 
       setStatus('success')
-      setTimeout(() => setStatus('idle'), 8000)
+      setTimeout(() => setStatus('idle'), 5000)
     } catch {
       setStatus('error')
       setErrorMessage('Algo deu errado. Tente novamente em instantes.')

@@ -33,7 +33,7 @@ export default function NewsletterForm() {
 
       setStatus('success')
       form.reset()
-      setTimeout(() => setStatus('idle'), 6000)
+      setTimeout(() => setStatus('idle'), 5000)
     } catch {
       setStatus('error')
       setMessage('Algo deu errado. Tente novamente em instantes.')
