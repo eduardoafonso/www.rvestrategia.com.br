@@ -35,7 +35,10 @@ export async function POST(request: Request) {
 
   const { error } = await supabase
     .from('leads')
-    .insert({ name, email, social, phone })
+    .upsert(
+      { name, email, social, phone: phone || null, diagnostico: true },
+      { onConflict: 'email', ignoreDuplicates: false },
+    )
 
   if (error) {
     console.error('[lead] Supabase error', error)

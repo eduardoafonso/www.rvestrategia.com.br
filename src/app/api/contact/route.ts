@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   const { data: lead, error: leadError } = await supabase
     .from('leads')
     .upsert(
-      { name, email, phone: phone || null },
+      { name, email, phone: phone || null, contato: true },
       { onConflict: 'email', ignoreDuplicates: false },
     )
     .select('id')
