@@ -6,6 +6,7 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function FinalCTA() {
   const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const [phone, setPhone] = useState('')
 
   function maskPhone(value: string) {
@@ -19,17 +20,35 @@ export default function FinalCTA() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setStatus('loading')
+    setErrorMessage('')
 
     const form = new FormData(event.currentTarget)
-    // TODO: conectar ao backend/CRM
-    console.log('Contato recebido:', {
+    const payload = {
       name: form.get('name'),
+      email: form.get('email'),
       phone: form.get('phone'),
       subject: form.get('subject'),
-    })
+    }
 
-    await new Promise((r) => setTimeout(r, 600))
-    setStatus('success')
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const data = await response.json()
+
+      if (!response.ok) {
+        setStatus('error')
+        setErrorMessage(data.message ?? 'Não foi possível enviar sua mensagem.')
+        return
+      }
+
+      setStatus('success')
+    } catch {
+      setStatus('error')
+      setErrorMessage('Algo deu errado. Tente novamente em instantes.')
+    }
   }
 
   const inputClass =
@@ -75,6 +94,20 @@ export default function FinalCTA() {
             </div>
 
             <div className="flex flex-col gap-1">
+              <label htmlFor="contact-email" className="text-sm font-medium text-rv-light">
+                Email
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                required
+                className={inputClass}
+                placeholder="seuemail@exemplo.com"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
               <label htmlFor="contact-phone" className="text-sm font-medium text-rv-light">
                 Telefone
               </label>
@@ -82,7 +115,6 @@ export default function FinalCTA() {
                 id="contact-phone"
                 name="phone"
                 type="tel"
-                required
                 value={phone}
                 onChange={(e) => setPhone(maskPhone(e.target.value))}
                 className={inputClass}
@@ -103,6 +135,10 @@ export default function FinalCTA() {
                 placeholder="Como posso te ajudar?"
               />
             </div>
+
+            {status === 'error' && (
+              <p className="text-sm text-rv-salmon">{errorMessage}</p>
+            )}
 
             <button
               type="submit"
