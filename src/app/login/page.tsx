@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+import { FiArrowLeft } from 'react-icons/fi'
 import LoginButton from '@/components/admin/LoginButton'
 
 export const metadata: Metadata = {
@@ -40,6 +42,16 @@ export default async function LoginPage({
         )}
 
         <LoginButton />
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-sm text-rv-light/40 transition hover:text-rv-light/70"
+          >
+            <FiArrowLeft className="h-3.5 w-3.5" />
+            Voltar ao site
+          </Link>
+        </div>
       </div>
     </div>
   )
