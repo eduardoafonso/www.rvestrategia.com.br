@@ -4,7 +4,7 @@ import AdminPagination from '@/components/admin/AdminPagination'
 import PhoneModal from '@/components/admin/PhoneModal'
 import Tooltip from '@/components/admin/Tooltip'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 const PAGE_SIZE = 5
 

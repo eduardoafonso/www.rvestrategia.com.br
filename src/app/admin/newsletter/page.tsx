@@ -1,7 +1,7 @@
 import { supabaseAdmin } from '@/lib/supabase-admin'
 import AdminPagination from '@/components/admin/AdminPagination'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 const PAGE_SIZE = 5
 

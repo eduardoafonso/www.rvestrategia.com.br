@@ -4,7 +4,7 @@ import DeleteUserButton from '@/components/admin/DeleteUserButton'
 import ToggleAtivoButton from '@/components/admin/ToggleAtivoButton'
 import AdminPagination from '@/components/admin/AdminPagination'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 const PAGE_SIZE = 6
 
