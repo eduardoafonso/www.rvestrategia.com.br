@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+import { FiArrowLeft } from 'react-icons/fi'
 import WaitlistForm from './WaitlistForm'
 
 export const metadata: Metadata = {
@@ -13,6 +15,14 @@ export const metadata: Metadata = {
 export default function MetodoRV() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-rv-bg px-6 py-16">
+      <Link
+        href="/#metodo-rv-da-competencia-a-autoridade"
+        className="mb-8 flex items-center gap-2 text-sm text-rv-light/50 transition hover:text-rv-light/90"
+      >
+        <FiArrowLeft className="h-4 w-4" />
+        Voltar
+      </Link>
+
       <Image
         src="/logo-footer.png"
         alt="RV Estratégia"

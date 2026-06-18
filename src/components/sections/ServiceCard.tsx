@@ -3,6 +3,7 @@ import type { Service } from '@/lib/constants'
 export default function ServiceCard({ service }: { service: Service }) {
   return (
     <article
+      id={service.slug}
       className={`flex h-full flex-col gap-4 rounded-2xl border p-6 transition hover:-translate-y-1 hover:shadow-xl bg-rv-card ${
         service.highlight
           ? 'border-rv-salmon'
