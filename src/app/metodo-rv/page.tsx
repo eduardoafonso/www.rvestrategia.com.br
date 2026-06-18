@@ -16,7 +16,7 @@ export default function MetodoRV() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-rv-bg px-6 py-16">
       <Link
-        href="/#metodo-rv-da-competencia-a-autoridade"
+        href="/#metodo-rv"
         className="mb-8 flex items-center gap-2 text-sm text-rv-light/50 transition hover:text-rv-light/90"
       >
         <FiArrowLeft className="h-4 w-4" />

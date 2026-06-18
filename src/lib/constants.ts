@@ -75,7 +75,7 @@ export const SERVICES: Service[] = [
     highlight: true,
   },
   {
-    slug: 'metodo-rv-da-competencia-a-autoridade',
+    slug: 'metodo-rv',
     title: 'Método RV da Competência à Autoridade',
     price: 'R$ 398',
     description:
