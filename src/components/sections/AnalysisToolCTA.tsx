@@ -145,7 +145,7 @@ export default function AnalysisToolCTA() {
                 htmlFor="social"
                 className="text-sm font-medium text-rv-light"
               >
-                Rede Social
+                Instagram
               </label>
               <input
                 id="social"
@@ -153,7 +153,7 @@ export default function AnalysisToolCTA() {
                 type="text"
                 required
                 className="rounded-lg border border-rv-lilac/30 bg-rv-bg-alt px-4 py-2 text-rv-light placeholder:text-rv-light/40 focus:border-rv-salmon focus:outline-none"
-                placeholder="Link do perfil"
+                placeholder="@seuperfil"
               />
             </div>
 

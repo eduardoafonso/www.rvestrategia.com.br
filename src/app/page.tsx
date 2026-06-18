@@ -30,6 +30,9 @@ export default function Home() {
         <AboutSection />
       </Reveal>
       <Reveal>
+        <HowItWorksSection />
+      </Reveal>
+      <Reveal>
         <PhilosophyQuote />
       </Reveal>
       <Reveal>
@@ -37,9 +40,6 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <SocialProofSection />
-      </Reveal>
-      <Reveal>
-        <HowItWorksSection />
       </Reveal>
       <Reveal>
         <AnalysisToolCTA />
