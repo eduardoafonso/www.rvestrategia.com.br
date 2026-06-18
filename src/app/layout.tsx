@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/sections/Header'
-import Footer from '@/components/sections/Footer'
-import WhatsAppFloatingButton from '@/components/sections/WhatsAppFloatingButton'
-import CookieBannerWrapper from '@/components/CookieBannerWrapper'
 import { SITE_URL } from '@/lib/constants'
 
 const fraunces = Poppins({
@@ -85,11 +81,7 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppFloatingButton />
-        <CookieBannerWrapper />
+        {children}
       </body>
     </html>
   )
