@@ -114,8 +114,7 @@ export default function AdminShell({
   async function handleLogoutConfirm() {
     const supabase = createSupabaseBrowser()
     await supabase.auth.signOut()
-    setLogoutConfirm(false)
-    router.push('/login')
+    window.location.replace('/login')
   }
 
   return (
