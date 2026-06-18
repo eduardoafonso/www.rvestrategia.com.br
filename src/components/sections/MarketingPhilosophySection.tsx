@@ -6,7 +6,7 @@ export default function MarketingPhilosophySection() {
       <div className="mx-auto grid max-w-5xl items-center gap-12 sm:grid-cols-2">
         <div>
           <p className="font-heading text-2xl font-medium leading-snug text-rv-bg sm:text-3xl">
-            O marketing mudou. Algoritmos, IA e tendências passageiras não
+            O marketing mudou. Algoritmos, Inteligência Artificial e tendências passageiras não
             constroem autoridade —{' '}
             <span className="text-rv-salmon">conexão genuína constrói.</span>
           </p>
