@@ -19,10 +19,10 @@ function LogoutModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
       <div className="w-full max-w-sm rounded-2xl bg-rv-bg-deep p-6 shadow-2xl">
         <h2 className="font-heading text-lg font-semibold text-rv-light">
-          Sair do painel?
+          Sair da área administrativa?
         </h2>
         <p className="mt-2 text-sm text-rv-light/60">
-          Você será redirecionado para a página inicial.
+          Sua sessão será encerrada.
         </p>
         <div className="mt-6 flex justify-end gap-3">
           <button
