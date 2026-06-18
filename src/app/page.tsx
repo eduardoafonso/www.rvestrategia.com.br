@@ -12,7 +12,7 @@ import HowItWorksSection from '@/components/sections/HowItWorksSection'
 import FinalCTA from '@/components/sections/FinalCTA'
 
 export const metadata: Metadata = {
-  title: 'Estrategista Digital | Posicionamento e Autoridade',
+  title: 'Rita Vanin — Estrategista Digital | Posicionamento',
   description:
     'Diagnóstico gratuito de posicionamento digital com Rita Vanin. ' +
     'Transforme experiência profissional em autoridade e clientes no ' +

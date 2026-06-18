@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function StickyMobileCta() {
   const [hidden, setHidden] = useState(false)
+  const [pulsing, setPulsing] = useState(true)
 
   useEffect(() => {
     const target = document.getElementById('diagnostico')
@@ -18,6 +19,11 @@ export default function StickyMobileCta() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setPulsing(false), 3000)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div
       style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 6px)' }}
@@ -26,7 +32,9 @@ export default function StickyMobileCta() {
       }`}
     >
       <span className="relative flex">
-        <span className="absolute inset-0 animate-pulse rounded-full ring-4 ring-rv-cta/60" />
+        {pulsing && (
+          <span className="absolute inset-0 animate-pulse rounded-full ring-4 ring-rv-cta/60" />
+        )}
         <a
           href="/#diagnostico"
           className="relative block w-full rounded-full bg-rv-cta px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-rv-cta-hover"
