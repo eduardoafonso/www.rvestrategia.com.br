@@ -54,7 +54,7 @@ export default async function NewsletterPage({
 
       {error && (
         <p className="mb-4 rounded-lg bg-rv-card p-4 text-sm text-rv-salmon">
-          Erro ao carregar dados: {error.message}
+          Erro ao carregar os dados. Tente recarregar a página.
         </p>
       )}
 
