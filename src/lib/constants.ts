@@ -4,7 +4,7 @@ export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/rvestrategia',
   tiktok: 'https://tiktok.com/@rvestrategia',
   youtube: 'https://youtube.com/@rvestrategia',
-  substack: 'https://rvestrategia.substack.com',
+  substack: 'https://ritavaninestrategia.substack.com',
   whatsapp: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5500000000000'}`,
 }
 

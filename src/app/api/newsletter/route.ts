@@ -28,6 +28,8 @@ export async function POST(request: Request) {
   })
 
   if (!res.ok) {
+    const text = await res.text().catch(() => '')
+    console.error('[newsletter] Substack error', res.status, text)
     return NextResponse.json(
       { message: 'Não foi possível completar a inscrição. Tente novamente.' },
       { status: 502 },
