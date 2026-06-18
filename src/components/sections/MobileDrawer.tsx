@@ -53,10 +53,15 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <Link
               key={link.href}
               href={`/${link.href}`}
+              scroll={false}
               onClick={() => {
                 onClose()
-                if (link.href === '#home')
-                  window.dispatchEvent(new CustomEvent('hero-bob'))
+                const id = link.href.replace('#', '')
+                setTimeout(() => {
+                  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                  if (link.href === '#home')
+                    window.dispatchEvent(new CustomEvent('hero-bob'))
+                }, 300)
               }}
               className="font-heading text-lg text-rv-light transition hover:text-rv-pink"
             >
