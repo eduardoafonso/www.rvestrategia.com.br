@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { FiCheckCircle } from 'react-icons/fi'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -71,20 +72,7 @@ export default function FinalCTA() {
       <div className="mx-auto mt-10 max-w-md rounded-2xl bg-rv-card p-6 text-left shadow-xl sm:p-8">
         {status === 'success' ? (
           <div className="py-6 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-rv-salmon/20">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-7 w-7 text-rv-salmon"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
+            <FiCheckCircle className="mx-auto h-14 w-14 text-rv-salmon" />
             <p className="mt-4 font-heading text-lg font-semibold text-rv-light">
               Mensagem recebida!
             </p>
