@@ -4,9 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (pathname === '/login') {
-    return NextResponse.next()
-  }
+  if (pathname === '/login') return NextResponse.next()
 
   try {
     let supabaseResponse = NextResponse.next({ request })
@@ -36,28 +34,8 @@ export async function middleware(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser()
 
-    if (!user?.email) {
+    if (!user) {
       return NextResponse.redirect(new URL('/login', request.url))
-    }
-
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/usuarios` +
-        `?email=eq.${encodeURIComponent(user.email)}&ativo=eq.true&select=id&limit=1`,
-      {
-        headers: {
-          apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
-          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY!}`,
-        },
-        cache: 'no-store',
-      },
-    )
-
-    const rows: unknown = await res.json()
-
-    if (!Array.isArray(rows) || rows.length === 0) {
-      return NextResponse.redirect(
-        new URL('/login?erro=nao-autorizado', request.url),
-      )
     }
 
     return supabaseResponse
