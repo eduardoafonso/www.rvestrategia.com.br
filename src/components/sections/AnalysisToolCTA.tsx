@@ -186,7 +186,7 @@ export default function AnalysisToolCTA() {
             >
               {status === 'loading'
                 ? 'Analisando...'
-                : 'Quero minha análise gratuita'}
+                : 'Quero meu diagnóstico gratuito'}
             </button>
           </form>
         )}
