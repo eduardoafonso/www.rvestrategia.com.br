@@ -54,7 +54,7 @@ export default function NewsletterForm() {
     return (
       <div className="flex items-center gap-2 rounded-full border border-rv-lilac/30 px-5 py-3 text-sm text-rv-light/70">
         <FiAlertCircle className="h-4 w-4 shrink-0 text-rv-salmon" />
-        <span>Este email já está cadastrado na nossa lista.</span>
+        <span>Email já cadastrado na nossa lista.</span>
       </div>
     )
   }
