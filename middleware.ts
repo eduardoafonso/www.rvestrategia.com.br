@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (pathname === '/admin/login') {
+  if (pathname === '/login') {
     return NextResponse.next()
   }
 
@@ -37,7 +37,7 @@ export async function middleware(request: NextRequest) {
     } = await supabase.auth.getUser()
 
     if (!user?.email) {
-      return NextResponse.redirect(new URL('/admin/login', request.url))
+      return NextResponse.redirect(new URL('/login', request.url))
     }
 
     // Verifica autorização na tabela usuarios via REST (service role, bypassa RLS)
@@ -64,7 +64,7 @@ export async function middleware(request: NextRequest) {
     return supabaseResponse
   } catch {
     // Qualquer erro (env var ausente, rede, token inválido) bloqueia o acesso
-    return NextResponse.redirect(new URL('/admin/login', request.url))
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 }
 

@@ -115,7 +115,7 @@ export default function AdminShell({
     const supabase = createSupabaseBrowser()
     await supabase.auth.signOut()
     setLogoutConfirm(false)
-    router.push('/admin/login')
+    router.push('/login')
   }
 
   return (
