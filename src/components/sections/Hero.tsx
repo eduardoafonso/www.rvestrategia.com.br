@@ -42,7 +42,7 @@ export default function Hero() {
           {/* Degradê escuro — só mobile/tablet, foto como fundo do headline */}
           <div className="absolute inset-0 bg-gradient-to-r from-rv-bg-deep/95 via-rv-bg-deep/85 to-rv-bg-deep/55 lg:hidden" />
           {/* Degradê de transição — só desktop, versão original em coluna */}
-          <div className="absolute inset-y-0 left-0 z-10 hidden w-28 bg-gradient-to-r from-rv-light to-transparent lg:block" />
+          <div className="absolute inset-y-0 left-0 z-10 hidden w-56 bg-gradient-to-r from-rv-light from-0% via-rv-light/40 via-60% to-transparent lg:block" />
         </div>
       </div>
     </section>
