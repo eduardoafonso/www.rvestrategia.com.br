@@ -21,7 +21,7 @@ export default function Hero() {
             Eu mudo isso — sem fórmulas genéricas.
           </p>
 
-          <div className="mt-24 sm:mt-8">
+          <div className="mt-24 flex justify-center sm:mt-8 sm:justify-start">
             <HeroCta />
           </div>
         </div>
