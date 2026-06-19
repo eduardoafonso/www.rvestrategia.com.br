@@ -21,7 +21,7 @@ export default function Hero() {
             Eu mudo isso — sem fórmulas genéricas.
           </p>
 
-          <div className="mt-16 sm:mt-8">
+          <div className="mt-24 sm:mt-8">
             <HeroCta />
           </div>
         </div>
