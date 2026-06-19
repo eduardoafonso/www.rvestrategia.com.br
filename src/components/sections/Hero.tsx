@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-0 scroll-mt-16 overflow-hidden bg-rv-bg-deep lg:bg-gradient-to-r lg:from-rv-light lg:via-rv-light lg:to-rv-lilac/40"
+      className="relative z-0 scroll-mt-16 overflow-hidden bg-rv-bg-deep lg:bg-rv-light"
     >
       <div className="lg:grid lg:grid-cols-[1fr_45%]">
         {/* Coluna texto */}
@@ -21,7 +21,7 @@ export default function Hero() {
             Eu mudo isso — sem fórmulas genéricas.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-16 sm:mt-8">
             <HeroCta />
           </div>
         </div>
